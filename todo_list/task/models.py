@@ -15,7 +15,7 @@ class Task(models.Model):
     dead_line = models.DateTimeField(
         _("Task dead line time"), auto_now=False, auto_now_add=False
     )
-    is_active = models.BooleanField(_("Is valid"))
+    is_active = models.BooleanField(_("Is valid"), default=True)
 
     def __str__(self):
-        return self.title + " | is valid : " + self.is_done
+        return self.title + " | is valid : " + str(self.is_done)
