@@ -1,8 +1,14 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class Task(models.Model):
+    user = models.ForeignKey(
+        User, verbose_name=_("user"), on_delete=models.CASCADE, related_name="tasks"
+    )
     title = models.CharField(_("Task title"), max_length=50)
     description = models.CharField(_("Task description"), max_length=255)
     is_done = models.BooleanField(_("Is done"), default=False)
