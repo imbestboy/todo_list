@@ -23,4 +23,5 @@ base_url = "api/v1/"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(base_url + "user/", include("user.urls")),
+    path(base_url + "task/", include("task.urls")),
 ]
