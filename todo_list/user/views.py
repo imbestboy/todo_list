@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework import generics, mixins
+from . import serializers
+from django.contrib.auth import get_user_model
 
-# Create your views here.
+User = get_user_model()
+
+
+class SignUpAPIView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = serializers.SignUpSerializer
+    permission_classes = []

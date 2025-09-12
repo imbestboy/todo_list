@@ -19,7 +19,7 @@ class UsernameValidator(validators.RegexValidator):
 
 
 class User(AbstractUser):
-    email = models.EmailField(_("email address"))
+    email = models.EmailField(_("email address"), unique=True)
     username_validator = UsernameValidator()
     username = models.CharField(
         _("username"),
