@@ -7,4 +7,5 @@ router.register("", views.TaskViewSet, basename="tasks")
 
 urlpatterns = [
     path("", include(router.urls)),
+    path("complete/<int:pk>/", views.CompleteTaskAPIView.as_view()),
 ]

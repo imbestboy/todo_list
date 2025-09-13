@@ -14,3 +14,11 @@ class TaskSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data.update({"user": self.context["user"]})
         return super().create(validated_data)
+
+
+class CompleteTaskSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Task
+        fields = ("id", "title", "description", "is_done", "dead_line")
+        read_only_fields = ("id", "title", "description", "dead_line")
