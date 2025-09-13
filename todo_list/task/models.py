@@ -18,4 +18,4 @@ class Task(models.Model):
     is_active = models.BooleanField(_("Is valid"), default=True)
 
     def __str__(self):
-        return self.title + " | is valid : " + str(self.is_done)
+        return self.title + " | is done : " + str(self.is_done)
