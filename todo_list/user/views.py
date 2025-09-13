@@ -9,3 +9,10 @@ class SignUpAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = serializers.SignUpSerializer
     permission_classes = []
+
+
+class EditUserAPIView(generics.RetrieveUpdateAPIView):
+    serializer_class = serializers.UserSerializer
+
+    def get_object(self):
+        return self.request.user
